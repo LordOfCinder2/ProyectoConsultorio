@@ -1,0 +1,637 @@
+{
+	"info": {
+		"_postman_id": "6eab336a-0c4f-4874-ab1d-6e5b0ca46dfd",
+		"name": "Consultorio",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21694106"
+	},
+	"item": [
+		{
+			"name": "/dentist",
+			"item": [
+				{
+					"name": "PostDentist",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{AdminName}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"license\": 10,\r\n    \"lastName\": \"Mark\",\r\n    \"firstName\": \"Markingson\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Dentist}}/add",
+							"host": [
+								"{{Dentist}}"
+							],
+							"path": [
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetDentist",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{AdminName}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "id",
+								"value": "9",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Dentist}}/:id",
+							"host": [
+								"{{Dentist}}"
+							],
+							"path": [
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllDentists",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{AdminName}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Dentist}}/all",
+							"host": [
+								"{{Dentist}}"
+							],
+							"path": [
+								"all"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "7",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteDentist",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{AdminName}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{Dentist}}/delete/:id",
+							"host": [
+								"{{Dentist}}"
+							],
+							"path": [
+								"delete",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetDentistByLicense",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{AdminName}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Dentist}}/id/:license",
+							"host": [
+								"{{Dentist}}"
+							],
+							"path": [
+								"id",
+								":license"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "7",
+									"disabled": true
+								},
+								{
+									"key": "firstName",
+									"value": "Ramon",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "license",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetDentistByLastName",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{AdminName}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Dentist}}/:name",
+							"host": [
+								"{{Dentist}}"
+							],
+							"path": [
+								":name"
+							],
+							"variable": [
+								{
+									"key": "name",
+									"value": "Mark"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateDentist",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{AdminName}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"license\": 5,\r\n    \"lastName\": \"Marky\",\r\n    \"firstName\": \"Ramone\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Dentist}}?id=1",
+							"host": [
+								"{{Dentist}}"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/patient",
+			"item": [
+				{
+					"name": "PostPatient",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "password",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "userTest@digital.com",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"lastName\": \"Robertson\",\r\n    \"firstName\": \"Ricardo\",\r\n    \"identification\": 123456,\r\n    \"address\": {\r\n        \"street\": \"Calle Falsa 123\",\r\n        \"city\": \"Springfield\",\r\n        \"country\": \"USA\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Patient}}",
+							"host": [
+								"{{Patient}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetPatient",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "password",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "userTest@digital.com",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Patient}}?id=1",
+							"host": [
+								"{{Patient}}"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllPatients",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "password",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "userTest@digital.com",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Patient}}/all",
+							"host": [
+								"{{Patient}}"
+							],
+							"path": [
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeletePatient",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{Patient}}?id=1",
+							"host": [
+								"{{Patient}}"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetPatientByIdentification",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Patient}}/:identification",
+							"host": [
+								"{{Patient}}"
+							],
+							"path": [
+								":identification"
+							],
+							"variable": [
+								{
+									"key": "identification",
+									"value": "123456"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdatePatientAddress",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"street\": \"Calle Real 456\",\r\n        \"city\": \"Shelviville\",\r\n        \"country\": \"USA\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Patient}}?id=1",
+							"host": [
+								"{{Patient}}"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/appointment",
+			"item": [
+				{
+					"name": "CreateAppointment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"patient\":{\"id\": 1},\r\n    \"dentist\":{\"id\": 1},\r\n    \"appointmentDate\": \"2022-05-05\",\r\n    \"appointmentTime\": \"16:30\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{Appointment}}",
+							"host": [
+								"{{Appointment}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAppointment",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllAppointments",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{AdminName}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Appointment}}/all",
+							"host": [
+								"{{Appointment}}"
+							],
+							"path": [
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAmountOfAppointments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{Appointment}}/count",
+							"host": [
+								"{{Appointment}}"
+							],
+							"path": [
+								"count"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/user",
+			"item": [
+				{
+					"name": "CreateUser",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "{{AdminName}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"nuevo\",\r\n    \"username\": \"magia666\",\r\n    \"email\": \"ricardo@gmail.com\",\r\n    \"password\": \"123\",\r\n    \"apiUserRoles\": \"ADMIN\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{User}}/postuser",
+							"host": [
+								"{{User}}"
+							],
+							"path": [
+								"postuser"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
